@@ -4,18 +4,33 @@
         Menu    
     </a>
     
-    <?= $this->Html->link(
-        'User',[
-            'controller' => 'users',
-            'action' => 'index',
-        ], ['class'=>'list-group-item']
-        
-    );?>
         <?= $this->Html->link(
-            'Post',[
+            'ユーザー',[
+                'controller' => 'users',
+                'action' => 'index',
+            ], ['class'=>'list-group-item']
+
+        );?>
+        <?= $this->Html->link(
+            'お知らせ',[
                 'controller' => 'posts',
                 'action' => 'index',
             ], ['class'=>'list-group-item']
         );?>
+                
+        <?= $this->Html->link(
+            '求人',[
+                'controller' => 'jobs',
+                'action' => 'index',
+            ], ['class'=>'list-group-item']
+        );?>
+
+        <?= $this->Html->link(
+            'カテゴリ',[
+                'controller' => 'categories',
+                'action' => 'index',
+            ], ['class'=>'list-group-item']
+        );?>
+        
     </center>
 </div>

@@ -17,7 +17,11 @@
     </div>
     <div class="form-group">
         <?= $this->Form->input('role',[
-            'type' =>'text',
+            'type' =>'select',
+            'options'=>[
+              'admin'=> 'admin',
+              'user' => 'user'  
+            ],
             'class' => 'form-control',
             'label' => '権限',
         ]);?>

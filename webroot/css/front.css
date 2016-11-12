@@ -9,12 +9,12 @@ and open the template in the editor.
 */
 .topimage {
     /*webroot/css配下のどこか､という記述になる*/
-      background: url("/img/sekai1.jpeg");
+      background: url("/img/goodjob.jpg");
       background-position: center center;
       /*画像を画面に合わせて最小サイズで表示*/
       background-size: cover;
       height: 700px;
-      color: purple;
+      color: darkblue;
       /*親要素*/
       position: relative;
       margin :auto 0;
@@ -24,7 +24,7 @@ and open the template in the editor.
 
 
 .squere{
-        background-color: greenyellow;
+        background-color: bisque;
         
         /*透過性*/
         opacity: 0.8;
@@ -37,12 +37,15 @@ and open the template in the editor.
         position: absolute; left: 0;
 
 }
+.bodyimage{
+    background-color: palegreen;
+}
 .pageimage1 {
     /*webroot/css配下のどこか､という記述になる*/
-      background: url("/img/sekai2.jpg");
+      background: url("/img/job1.jpg");
       background-position: center center;
       /*画像を画面に合わせて最小サイズで表示*/
-      background-size: cover;
+      background-size: 350px 350px;
       height: 700px;
       color: pink;
       /*親要素*/
@@ -51,10 +54,12 @@ and open the template in the editor.
 }
 .pageimage2 {
     /*webroot/css配下のどこか､という記述になる*/
-      background: url("/img/sekai3.jpg");
+      background: url("/img/job3.png");
+      max-width:auto;
+      overflow: hidden;  
       background-position: center center;
       /*画像を画面に合わせて最小サイズで表示*/
-      background-size: cover;
+      background-size: contain;
       height: 700px;
       color: red;
       /*親要素*/

@@ -19,7 +19,11 @@
     </div>
     <div class="form-group">
         <?=$this->Form->input('role',[
-            'type'=> 'text',
+            'type' =>'select',
+            'options'=>[
+              'admin'=> 'admin',
+              'user' => 'user'  
+            ],
             'label' => '権限',
             'class' => 'form-control',
             'placeholder' => 'Role',                                
@@ -29,7 +33,3 @@
     <button class="btn btn-default"><?php echo $this->Html->link('戻る', array('action' => 'index')); ?></button>
     <?php echo $this->Form->end(); ?><br>        
 </div>
-
-	
-	
-        

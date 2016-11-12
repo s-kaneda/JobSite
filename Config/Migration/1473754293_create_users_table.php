@@ -16,37 +16,39 @@ class CreateUsersTable extends CakeMigration {
  */
 	public $migration = array(
 		'up' => array(
-                   'create_table' =>array(
-                       'users' =>array(
-                           'id'=> array(
-                               'type' => 'integer',
-                               'null' => false,
-                               'default' => null,
-                               'length' =>36,
-                               'key' =>'primary',
-                           ),
-                           'username' => array(
-                               'type' => 'string',
-                               'null' => false,
-                               'default' =>null
-                           ),
-                           'password'=> array(
-                               'type' => 'string',
-                               'null' => false,
-                               'default' => null
-                           ),
-                           'role' => array(
-                               'type' => 'string',
-                               'null' =>false,
-                               'default' => null
-                           ),
-                       ),
-                   ),
+            
+            
+            'create_table' =>array(
+                'users' =>array(
+                    'id'=> array(
+                        'type' => 'integer',
+                        'null' => false,
+                        'default' => null,
+                        'length' =>36,
+                        'key' =>'primary',
+                    ),
+                    'username' => array(
+                        'type' => 'string',
+                        'null' => false,
+                        'default' =>null
+                    ),
+                    'password'=> array(
+                        'type' => 'string',
+                        'null' => false,
+                        'default' => null
+                    ),
+                    'role' => array(
+                        'type' => 'string',
+                        'null' =>false,
+                        'default' => null
+                    ),
+                ),
+            ),
 		),
 		'down' => array(
-                    'drop_table' =>array(
-                        'users',
-                    )
+            'drop_table' =>array(
+                'users',
+            ),
 		),
 	);
 
