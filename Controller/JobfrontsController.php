@@ -8,7 +8,7 @@ App::uses('CakeEmail', 'Network/Email');
  * @property User $User
  * @property PaginatorComponent $Paginator
  */
-class ContactsController extends AppController {
+class JobfrontsController extends AppController {
 
 /**
  * Components
@@ -17,15 +17,19 @@ class ContactsController extends AppController {
  */
 	public $components = array(
         'Paginator'=>[
-            'limit'=>3
+            'limit'=>5
         ],
         'Session',
     );    
+    
+     public  $uses = ['Job','Contact','Category','JobSearch']; //モデルを指定
+    
     //コンポーネント:各コントローラーに使えるようにする
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
         $this->layout = 'front';
+       
     }
 
     public function isAuthorized($user) {
@@ -50,40 +54,31 @@ class ContactsController extends AppController {
         return false;
     }        
     
-    public function contact() {
+    public function contact($id = null) {
         
-        //セッションを読み込みます
-        $contact = $this->Session->read('Contact');
-//        var_dump($contact);
-        //リクエストデーターがポストなら                        
+        $job = $this->Job->findById($id);
+        $this->set('job',$job);
+            
         if ($this->request->is('post')) {
-//                    var_dump($this->request->data);
-//                    exit;
-			$this->Contact->create();
-            //リクエストデーターをセットします。
+            
+            $this->Contact->create();
+            
             $this->Contact->set($this->request->data);
-            //バリデーション
-			if ($this->Contact->validates()){
+//            var_dump($this->request->data);
+//            exit;
+            if($this->Contact->validates()){
+                //mailを送る
+                $this->sendMail($this->request->data['Contact']);
                 
-                // リクエストデーターの値をセッションに保存
-                $this->Session->write('Contact',$this->request->data['Contact']);
-                
-               // var_dump($this->request->data);
-                //exit;
-                //コンンファームへリダレクト
-                return $this->redirect(array('action' => 'confirm'));
+                //フラッシュメッセージを出す
+                $this->Flash->success('メールを送信しました');
+                //応募詳細画面に戻る
+                return $this->redirect(['action' => 'view',$id]);
             }
-            else{
-                $this->Flash->danger('メールを送信できませんでした。もう一度トライしてください');               
-            }
-        }else{
-            //もしセッションがあればフォームにリクエストデーターをセット
-            //セッションが空じゃなければ(セッションがあれば)
-            if(!empty($contact)){
-                //               
-                $this->request->data['Contact'] = $contact;                    
-            }
-        }                         
+            
+        }
+        
+        
     }
     
     public function confirm() {
@@ -105,15 +100,56 @@ class ContactsController extends AppController {
     }
                     
     private function sendMail($contact) {
+//        var_dump($contact);
+//        exit;
         // セッションからお問い合わせデーターを取得
         $Email = new CakeEmail('gmail');
         $Email->viewVars($contact);        
         $Email->template('contact');
         $Email->emailFormat('text');
-        $Email->from(array('sobani.live311@gmail.com' => 'Sitebaseから'));
+        $Email->from(array('sobani.live311@gmail.com' => 'Jobsiteから'));
         $Email->to('sobani.live311@gmail.com');
-        $Email->subject('お問い合わせ');                
+        $Email->subject('応募');                
         $Email->send();                
     }
+    
+   
+
+    public function wanted(){
+
+        
+        
+        if ($this->request->is('post')) {
+            $this->JobSearch->create();
+            $this->JobSearch->set($this->request->data);
+            if($this->JobSearch->validates()){
+                $this->Paginator->settings = array(
+                    'conditions' => array('Job.description LIKE' => '%'.$this->request->data['JobSearch']['keyword'].'%'),
+                );
+                
+            } else {
+                $this->Flash->danger('キーワードを入力してください');
+                //
+            }
+        }
+        
+		$this->Job->recursive = 0;
+        $jobs = $this->Paginator->paginate('Job'); //引数にモデル名を指定
+        
+        $category_list = $this->Category->find('list');
+
+        $this->set('category_list', $category_list);
+        $this->set('jobs', $jobs); 
+    }
+    
+    public function view($id = null) {
+        
+		if (!$this->Job->exists($id)) {
+			throw new NotFoundException(__('Invalid job'));
+		}
+		$options = array('conditions' => array('Job.' . $this->Job->primaryKey => $id));
+		$this->set('job', $this->Job->find('first', $options));
+        
+	}
     
 }

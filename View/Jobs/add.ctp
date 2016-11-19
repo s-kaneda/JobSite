@@ -8,9 +8,6 @@
         <?= $this->Form->input('campanyname');?>		
         <?= $this->Form->input('salary'); ?>
         <div class="form-group">
-           <?php // var_dump();
-//           exit;
-           ?>
             
            <?= $this->Form->input('category_id',[
                     'type'=>'select',                

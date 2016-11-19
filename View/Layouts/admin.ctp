@@ -4,7 +4,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		JobSite:
+		Jobsite:
 		<?php echo $this->fetch('title'); ?>
 	</title>
          <!-- Latest compiled and minified CSS -->

@@ -32,6 +32,7 @@ class JobsController extends AppController {
  * @return void
  */
 	public function index() {
+        
         $jobs = $this->Paginator->paginate();
 		$this->Job->recursive = 0;
 		$this->set('jobs', $jobs);

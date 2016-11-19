@@ -17,6 +17,7 @@
         <li><a href="/pages/page1">Page1</a></li>
         <li><a href="/pages/page2">Page2</a></li>
         <li><a href="/contacts/contact">お問い合わせ</a></li>
+        <li><a href="/jobfronts/wanted">求人一覧</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <?php if($login_user) :?>

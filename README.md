@@ -1,11 +1,11 @@
-# SiteBase
+# Job Site
 ## 概要
 
 ログインを必要とするサイトの為の雛形サイトです。
 CakePHP 2.8 で作成しています。
 
 
-![概要](https://raw.githubusercontent.com/s-kaneda/SiteBase/master/webroot/img/sitebase.png)
+![概要](https://raw.githubusercontent.com/s-kaneda/JobSite/master/webroot/img/jobsite.png)
 
 ## 要件
 
@@ -15,7 +15,7 @@ CakePHP 2.8 で作成しています。
 ## インストール方法
 
 ```
-$ git clone https://github.com/s-kaneda/SiteBase.git
+$ git clone https://github.com/s-kaneda/JobSite.git
 $ cd SiteBase
 $ composer install
 ```

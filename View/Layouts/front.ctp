@@ -4,7 +4,7 @@
     <head>
 	<?php echo $this->Html->charset(); ?>
         <title>
-            SiteBase: 
+            JobSite: 
 		<?php echo $this->fetch('title'); ?>
         </title>
         
@@ -25,8 +25,10 @@
         ?>
     </head>
     <body>
-        <?=$this->element('navbar_front');?>        
-            <div id="content">
+        <?=$this->element('navbar_front');?>
+            <?php echo $this->fetch('topimage'); ?>
+        
+            <div id="content" class="container">
                 <!--<div class="container">-->
                     <?php echo $this->Session->flash(); ?>
 
