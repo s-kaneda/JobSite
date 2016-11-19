@@ -1,13 +1,15 @@
-<div class="topimage">
-    <!--<div class="container">-->
-        <div class="squere">
-            <h1>JobSite Top</h1>
-            <p class="lead">コーポレートサイトの土台となるトップページです。</p>
-        </div>
-    <!--</div>-->
-</div>
+<?php $this->start('topimg')?>
+    <div class="topimage">
+       
+            <div class="squere">
+                <h1>JobSite Top</h1>
+                <p class="lead">コーポレートサイトの土台となるトップページです。</p>
+            </div>
+        
+    </div>
+
 <div class="bodyimage">
-    <div class="row" style="width: 1380px;">
+    <div class="row" style="margin-left: 20px;">
         <div class="col-md-4" >
             <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
             <h2>概要</h2>
@@ -34,3 +36,4 @@
 
     </div>
 </div> 
+<?php $this->end();?>

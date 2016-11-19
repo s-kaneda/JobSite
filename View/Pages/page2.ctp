@@ -1,9 +1,13 @@
-
+<?php $this->start('topimg')?>
 <div class="pageimage2">
-  
     <h1 class="toptitle">page2</h1>
     このページは静的なページ2です。
 </div>
+<?php $this->end();?>
+    
+    
+    このページは静的なページ2です。
+
 
 <div class ="row">
     <div class ="col-md-8">

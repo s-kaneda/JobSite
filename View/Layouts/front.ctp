@@ -26,7 +26,7 @@
     </head>
     <body>
         <?=$this->element('navbar_front');?>
-            <?php echo $this->fetch('topimage'); ?>
+            <?php echo $this->fetch('topimg'); ?>
         
             <div id="content" class="container">
                 <!--<div class="container">-->

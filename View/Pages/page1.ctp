@@ -1,9 +1,9 @@
-<div class="pageimage1">
-    
-    <h1 class="toptitle">page1</h1>
-    このページは静的なページ１です。
-</div>
-
+<?php $this->start('topimg')?>
+    <div class="pageimage1">
+        <h1 class="toptitle">page1</h1>
+        このページは静的なページ１です。
+    </div>
+<?php $this->end();?>
 <div class ="row">
     <div class ="col-md-8">
         <h1>ff fortessimo</h1>

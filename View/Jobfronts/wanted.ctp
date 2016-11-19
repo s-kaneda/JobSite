@@ -1,5 +1,5 @@
 
-<?php $this->start('topimage')?>
+<?php $this->start('topimg')?>
 <div class="pageimage3"> </div>
 <?php $this->end();?>
     

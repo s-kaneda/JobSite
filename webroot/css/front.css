@@ -45,19 +45,22 @@ and open the template in the editor.
       background: url("/img/job1.jpg");
       background-position: center center;
       /*画像を画面に合わせて最小サイズで表示*/
-      background-size: 350px 350px;
-      height: 700px;
+      background-size: 200px 200px; 
+      height: 400px;
       color: pink;
       /*親要素*/
       position: relative;
       margin :auto 0;
 }
-.pageimage2 {
+.pageimage3 {
     /*webroot/css配下のどこか､という記述になる*/
-      background: url("/img/job3.png");
+      background: url("/img/job3.png")right top no-repeat,
+                 url("/img/job1.jpg") left bottom no-repeat,
+                url("/img/job2.jpg") center center no-repeat;
+        
       max-width:auto;
       overflow: hidden;  
-      background-position: center center;
+      /*background-position:*/
       /*画像を画面に合わせて最小サイズで表示*/
       background-size: contain;
       height: 400px;
@@ -66,7 +69,7 @@ and open the template in the editor.
       position: relative;
       margin :auto 0;
 }
-.pageimage3 {
+.pageimage2 {
     /*webroot/css配下のどこか､という記述になる*/
       background: url("/img/job3.png");
       max-width:auto;
